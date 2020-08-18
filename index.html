@@ -13,7 +13,24 @@
     </script>
 </head>
 <body>
-<div class="webgl-content">
+	<script>
+		function FixInputOnSubmit() {
+			document.getElementById("fixInput").blur();
+			event.preventDefault();
+		}
+		function FixInputOnBlur() {
+			gameInstance.SendMessage('_WebGLKeyboard', 'LoseFocus');
+		}
+		function FixInputUpdate() {
+			gameInstance.SendMessage('_WebGLKeyboard', 'ReceiveInputChange', document.getElementById("fixInput").value);
+		}
+	</script>
+	<div>
+		<form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+			<input type="text" id="fixInput" oninput="FixInputUpdate()" onblur="FixInputOnBlur()" style="font-size: 42px;">
+		</form>
+	</div>
+	<div class="webgl-content">
     <div id="gameContainer" style="width: 1080px; height: 1920px"></div>
 </div>
 <!-- <div class="simmer">template by: <a href="https://simmer.io" target="_blank">SIMMER.io</a></div> -->
