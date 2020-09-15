@@ -1,7 +1,7 @@
 (function(){
-    console.log('Responsive WebGL Template by SIMMER.io v2019.02.08');
-    console.log('Available at: https://assetstore.unity.com/packages/tools/gui/responsive-webgl-template-117308 for free!');
-    console.log('Host your WebGL Game at SIMMER.io for free!');
+    // console.log('Responsive WebGL Template by SIMMER.io v2019.02.08');
+    // console.log('Available at: https://assetstore.unity.com/packages/tools/gui/responsive-webgl-template-117308 for free!');
+    // console.log('Host your WebGL Game at SIMMER.io for free!');
 
     const q = (selector) => document.querySelector(selector);
 
@@ -66,8 +66,8 @@
 
             new MutationObserver(function (attributesMutation) {
                 this.disconnect();
-                setTimeout(setDimensions, 1)
-                q('.simmer').classList.add('hide');
+                setTimeout(setDimensions, 1);
+                // q('.simmer').classList.add('hide');
             }).observe(canvas, {attributes:true});
 
             this.disconnect();
