@@ -22,6 +22,30 @@
 		})();
 	</script>
 	<script>
+		function FixOpenInputKeyboard(currentValue){
+			const fixInput = document.getElementById("fixInput");
+			fixInput.value = currentValue;
+			check = true;
+
+			const fakeInput = document.createElement('input');
+			fakeInput.setAttribute('type', 'text');
+			fakeInput.style.position = 'absolute';
+			fakeInput.style.opacity = 0;
+			fakeInput.style.height = 0;
+			fakeInput.style.fontSize = '16px';
+			/*fakeInput.readonly = "true";*/
+
+			document.body.prepend(fakeInput);
+			fakeInput.focus();
+			setTimeout(function(){
+				fixInput.focus();
+				fakeInput.remove();
+			}, 1000);
+		}
+		function FixCloseInputKeyboard() {
+			check = false;
+			document.getElementById("fixInput").blur();
+		}
 		function FixInputOnSubmit() {
 			document.getElementById("fixInput").blur();
 			event.preventDefault();

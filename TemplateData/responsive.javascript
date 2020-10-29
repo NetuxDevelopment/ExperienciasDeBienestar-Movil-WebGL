@@ -1,3 +1,5 @@
+var check = false;
+
 (function(){
     // console.log('Responsive WebGL Template by SIMMER.io v2019.02.08');
     // console.log('Available at: https://assetstore.unity.com/packages/tools/gui/responsive-webgl-template-117308 for free!');
@@ -25,6 +27,7 @@
     }
 
     const setDimensions = () => {
+		if(check == false) {
         gameContainer.style.position = 'absolute';
         gCanvasElement.style.display = 'none';
         var winW = parseInt(window.getComputedStyle(gameContainer).width, 10);
@@ -41,7 +44,9 @@
         gCanvasElement.setAttribute('height', fitH);
     }
 
-    window.setDimensions = setDimensions;
+    }
+
+	window.setDimensions = setDimensions;
 
     const registerCanvasWatcher = () => {
         let debounceTimeout = null;
