@@ -42,11 +42,10 @@ var check = false;
 
         gCanvasElement.setAttribute('width', fitW);
         gCanvasElement.setAttribute('height', fitH);
+		}
     }
 
-    }
-
-	window.setDimensions = setDimensions;
+    window.setDimensions = setDimensions;
 
     const registerCanvasWatcher = () => {
         let debounceTimeout = null;
